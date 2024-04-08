@@ -1,0 +1,18 @@
+class Node:
+    def __init__(self, data, next=None): 
+        self.data = data
+        self.next = next
+
+def linked_list_from_string(s):
+   # new = Node(s[0], k)
+    s = s.split(' -> ')[:-1][::-1]
+    if len(s) == 0:
+        return ''
+    def creat_nod(a, start, ind = 1):
+         if ind>= len(a) :
+            return start
+         start = Node(int(a[ind]), start)
+         return creat_nod(a, start, ind+1)
+    new = creat_nod(s, Node(int(s[0]), None))
+        
+    return new 
