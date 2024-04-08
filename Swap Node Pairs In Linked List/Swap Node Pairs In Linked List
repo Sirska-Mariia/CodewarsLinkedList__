@@ -1,0 +1,23 @@
+class Node:
+    def __init__(self, next=None):
+        self.next = next
+
+def swap_pairs(head):
+    if head is None or head.next is None:
+            return head
+    new =  Node(None)
+    new.next = head
+    head2 = new
+    for i in range(0,100):
+        if head2.next!= None and head2.next.next!= None:
+                m = head2.next
+                k = head2.next.next
+                t = None
+                if head2.next.next != None:
+                    t = k.next
+                head2.next = k
+                head2.next.next = m
+                head2.next.next.next = t
+                head2 = m
+    return new.next
+ 
