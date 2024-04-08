@@ -1,0 +1,22 @@
+class Node(object):
+    def __init__(self, data=None):
+        self.data = data
+        self.next = None
+
+def rev(head, neww):
+    if head is None:
+        return neww
+    new = head.next
+    # neww.data = neww.next
+    #neww.next = head.next
+    #neww.head = neww.next
+    head.next = neww
+    return rev(new, head)
+
+def reverse(head):
+    if head is None:
+        return None
+    #new = Node(None)
+    new = None
+    neww = rev(head, new)
+    return neww
