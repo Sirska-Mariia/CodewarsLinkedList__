@@ -1,0 +1,30 @@
+"""
+alternating split
+"""
+class Node(object):
+    def __init__(self, data=None):
+        self.data = data
+        self.next = None
+
+class Context(object):
+    def __init__(self, first, second):
+        self.first = first
+        self.second = second
+
+def alternating_split(head):
+    if head.next is None:
+        raise TypeError
+    first = head
+    second = head.next
+    a = first
+    b = second
+    while a is not None and b is not None:
+        a.next = b.next
+        if b.next is not None:
+            b.next = b.next.next
+        else:
+            b.next = None
+        # b.next = None
+        a = a.next
+        b = b.next
+    return Context(first, second)
