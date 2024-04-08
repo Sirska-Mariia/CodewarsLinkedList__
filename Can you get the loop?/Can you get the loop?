@@ -1,0 +1,17 @@
+def loop_size(node):
+    if node == None or node.next == None:
+        return 0
+    slow = node.next
+    fast = node.next.next
+    while fast!=None and fast.next!= None:
+        slow = slow.next
+        fast = fast.next.next
+        if  slow == fast:
+            break
+    length = 1
+    a = slow.next
+    while a != slow:
+        length += 1
+        a = a.next
+
+    return length
