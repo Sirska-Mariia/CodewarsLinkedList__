@@ -1,0 +1,12 @@
+def stringify(node):
+    i =  node
+    st = ''
+    while True:
+        try:
+            st += str(i.data)
+        except AttributeError:
+            break
+        else:
+            st += ' -> '
+        i = i.next
+    return st + 'None'
