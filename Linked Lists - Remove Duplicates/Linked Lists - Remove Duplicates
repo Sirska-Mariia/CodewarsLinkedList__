@@ -1,0 +1,18 @@
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+def remove_duplicates(head):
+    if head is None:
+            return None
+    head2 = head
+    nums = set()
+    nums.add(head.data)
+    while head2.next != None:
+        if head2.next.data in nums:
+            head2.next = head2.next.next
+        else:
+            nums.add(head2.next.data)
+            head2 = head2.next
+    return head
